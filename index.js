@@ -25,7 +25,6 @@ const GetUnreadMessagesHandler = {
     return getUnreadMessages({ numMessages }).then(message =>
       handlerInput.responseBuilder
         .speak(message)
-        // .withSimpleCard(SKILL_NAME, message)
         .getResponse()
     );
   }
