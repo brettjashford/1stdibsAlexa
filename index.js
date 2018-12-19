@@ -23,9 +23,7 @@ const GetUnreadMessagesHandler = {
       "requestEnvelope.request.intent.slots.numMessages.value"
     );
     return getUnreadMessages({ numMessages }).then(message =>
-      handlerInput.responseBuilder
-        .speak(message)
-        .getResponse()
+      handlerInput.responseBuilder.speak(message).getResponse()
     );
   }
 };
@@ -40,12 +38,10 @@ const GetRequiredActionsHandler = {
   },
   handle(handlerInput) {
     return getRequiredActions().then(message =>
-      handlerInput.responseBuilder
-        .speak(message)
-        .getResponse()
+      handlerInput.responseBuilder.speak(message).getResponse()
     );
   }
-}
+};
 
 // const LaunchHandler = {
 //   canHandle(handlerInput) {
@@ -125,7 +121,7 @@ const skillBuilder = Alexa.SkillBuilders.standard();
 exports.handler = skillBuilder
   .addRequestHandlers(
     GetUnreadMessagesHandler,
-    GetRequiredActionsHandler
+    GetRequiredActionsHandler,
     // LaunchHandler,
     HelpHandler,
     ExitHandler,
