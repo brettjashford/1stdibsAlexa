@@ -1,0 +1,16 @@
+{
+  "name": "1stdibsAlexa",
+  "version": "1.0.0",
+  "description": "hackathon project: lambda function to power alexa app for 1stdibs sellers",
+  "main": "index.js",
+  "author": "Brett Ashford <brettjashford@gmail.com>",
+  "license": "UNLICENSED",
+  "scripts": {
+    "deploy": "./deploy.sh"
+  },
+  "dependencies": {
+    "ask-sdk": "^2.3.0",
+    "isomorphic-fetch": "^2.2.1",
+    "lodash.get": "^4.4.2"
+  }
+}

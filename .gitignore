@@ -1,0 +1,5 @@
+node_modules
+.DS_Store
+1stdibsAlexa.zip
+yarn-error.log
+scratch.js
