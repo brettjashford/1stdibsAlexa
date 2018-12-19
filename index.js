@@ -1,6 +1,7 @@
 const Alexa = require("ask-sdk");
 const get = require("lodash.get");
 const getUnreadMessages = require("./lib/getUnreadMessages");
+const getRequiredActions = require("./lib/getRequiredActions");
 
 const LAUNCH_MESSAGE = "Welcome to the 1stdibs Sellers App";
 const SKILL_NAME = "1stdibs Sellers";
@@ -29,6 +30,23 @@ const GetUnreadMessagesHandler = {
     );
   }
 };
+
+const GetRequiredActionsHandler = {
+  canHandle(handlerInput) {
+    const request = handlerInput.requestEnvelope.request;
+    return (
+      request.type === "IntentRequest" &&
+      request.intent.name === "GetRequiredActionsIntent"
+    );
+  },
+  handle(handlerInput) {
+    return getRequiredActions().then(message =>
+      handlerInput.responseBuilder
+        .speak(message)
+        .getResponse()
+    );
+  }
+}
 
 // const LaunchHandler = {
 //   canHandle(handlerInput) {
@@ -109,6 +127,7 @@ exports.handler = skillBuilder
   .addRequestHandlers(
     GetNewFactHandler,
     GetUnreadMessagesHandler,
+    GetRequiredActionsHandler
     // LaunchHandler,
     HelpHandler,
     ExitHandler,
