@@ -107,7 +107,6 @@ const skillBuilder = Alexa.SkillBuilders.standard();
 
 exports.handler = skillBuilder
   .addRequestHandlers(
-    GetNewFactHandler,
     GetUnreadMessagesHandler,
     // LaunchHandler,
     HelpHandler,
